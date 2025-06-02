@@ -11,3 +11,20 @@
 //     });
 //     container.appendChild(button);
 // });
+
+const colourOptions = ["red", "green", "blue", "purple", "black", "yellow"];
+
+const container = document.querySelector(".options");
+
+colourOptions.forEach((color) => {
+  const button = document.createElement("button");
+  button.style.backgroundColor = color;
+  button.style.width = "10rem";
+  button.style.height = "20rem";
+
+  button.textContent = color;
+  button.addEventListener("click", () => {
+    console.log(`Button ${color} was clicked.`);
+  });
+  container.appendChild(button);
+});
