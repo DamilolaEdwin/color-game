@@ -1,3 +1,5 @@
+"use strict";
+
 // const colorOptions = ['red', 'green', 'blue']; // Example list of colors
 // const container = document.getElementById('buttonContainer'); // Container for buttons
 
@@ -12,19 +14,50 @@
 //     container.appendChild(button);
 // });
 
-const colourOptions = ["red", "green", "blue", "purple", "black", "yellow"];
+let score = 0;
+let highScore = 0;
+
+const colourOptions = ["Red", "Green", "Blue", "Purple", "White", "Yellow"];
 
 const container = document.querySelector(".options");
+
+let secretColour = Math.floor(Math.random() * colourOptions.length);
+console.log(secretColour, colourOptions[secretColour]);
 
 colourOptions.forEach((color) => {
   const button = document.createElement("button");
   button.style.backgroundColor = color;
   button.style.width = "10rem";
-  button.style.height = "20rem";
+  button.style.height = "15rem";
+  button.style.margin = "5px";
+  button.style.borderRadius = "5px";
 
   button.textContent = color;
-  button.addEventListener("click", () => {
+  button.addEventListener("click", function () {
+    if (color === colourOptions[secretColour]) {
+      document.querySelector(".message").textContent = "Correct!";
+      document.querySelector(".colour").style.backgroundColor = color;
+      document.querySelector(".colour").textContent = color;
+      document.querySelector(".colour").style.width = "30rem";
+      score++;
+      document.querySelector(".score").textContent = score;
+
+      // High score code block
+      if (score > highScore) {
+        highScore = score;
+        document.querySelector(".highscore").textContent = highScore;
+      }
+    } else {
+      document.querySelector(".message").textContent = "Wrong";
+      score--;
+      document.querySelector(".score").textContent = score;
+    }
+
     console.log(`Button ${color} was clicked.`);
   });
   container.appendChild(button);
+});
+
+document.querySelector(".again").addEventListener("click", function () {
+  document.querySelector(".score").textContent = 20;
 });
