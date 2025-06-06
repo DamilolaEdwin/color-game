@@ -14,7 +14,7 @@
 //     container.appendChild(button);
 // });
 
-let score = 0;
+let score = 5;
 let highScore = 0;
 
 const colourOptions = ["Red", "Green", "Blue", "Purple", "White", "Yellow"];
@@ -39,7 +39,7 @@ colourOptions.forEach((color) => {
       document.querySelector(".colour").style.backgroundColor = color;
       document.querySelector(".colour").textContent = color;
       document.querySelector(".colour").style.width = "30rem";
-      score++;
+
       document.querySelector(".score").textContent = score;
 
       // High score code block
@@ -51,6 +51,10 @@ colourOptions.forEach((color) => {
       document.querySelector(".message").textContent = "Wrong";
       score--;
       document.querySelector(".score").textContent = score;
+
+      if (score < 1) {
+        document.querySelector(".message").textContent = "You lost the game";
+      }
     }
 
     console.log(`Button ${color} was clicked.`);
@@ -59,5 +63,13 @@ colourOptions.forEach((color) => {
 });
 
 document.querySelector(".again").addEventListener("click", function () {
-  document.querySelector(".score").textContent = 20;
+  secretColour = Math.floor(Math.random() * colourOptions.length);
+  console.log(colourOptions[secretColour]);
+  score = 5;
+
+  document.querySelector(".colour").textContent = "?";
+  document.querySelector(".colour").style.width = "15rem";
+  document.querySelector(".colour").style.backgroundColor = "white";
+
+  document.querySelector(".score").textContent = score;
 });
