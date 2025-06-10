@@ -31,7 +31,8 @@ colourOptions.forEach((color) => {
   button.style.height = "15rem";
   button.style.margin = "5px";
   button.style.borderRadius = "5px";
-
+  button.style.border = "none";
+  button.style.cursor = "pointer";
   button.textContent = color;
   button.addEventListener("click", function () {
     if (color === colourOptions[secretColour]) {
@@ -39,6 +40,7 @@ colourOptions.forEach((color) => {
       document.querySelector(".colour").style.backgroundColor = color;
       document.querySelector(".colour").textContent = color;
       document.querySelector(".colour").style.width = "30rem";
+      document.querySelector("body").style.backgroundColor = "#60b347";
 
       document.querySelector(".score").textContent = score;
 
@@ -53,7 +55,7 @@ colourOptions.forEach((color) => {
       document.querySelector(".score").textContent = score;
 
       if (score < 1) {
-        document.querySelector(".message").textContent = "You lost the game";
+        document.querySelector(".message").textContent = "💥 You lost the game";
       }
     }
 
@@ -67,6 +69,7 @@ document.querySelector(".again").addEventListener("click", function () {
   console.log(colourOptions[secretColour]);
   score = 5;
 
+  document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".colour").textContent = "?";
   document.querySelector(".colour").style.width = "15rem";
   document.querySelector(".colour").style.backgroundColor = "white";
