@@ -115,6 +115,9 @@ h1 {
     text-align: center;
   }
 
+  .left {
+    margin-top: 20px;
+  }
   .right {
     font-size: 1.6rem;
     margin-top: 2rem;

@@ -39,7 +39,7 @@ colourOptions.forEach((color) => {
       document.querySelector(".message").textContent = "Correct!";
       document.querySelector(".colour").style.backgroundColor = color;
       document.querySelector(".colour").textContent = color;
-      document.querySelector(".colour").style.width = "30rem";
+      document.querySelector(".colour").style.width = "40rem";
       document.querySelector("body").style.backgroundColor = "#60b347";
 
       document.querySelector(".score").textContent = score;
@@ -50,7 +50,7 @@ colourOptions.forEach((color) => {
         document.querySelector(".highscore").textContent = highScore;
       }
     } else {
-      document.querySelector(".message").textContent = "Wrong";
+      document.querySelector(".message").textContent = "Wrong!";
       score--;
       document.querySelector(".score").textContent = score;
 
