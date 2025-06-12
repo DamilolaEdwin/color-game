@@ -69,6 +69,7 @@ document.querySelector(".again").addEventListener("click", function () {
   console.log(colourOptions[secretColour]);
   score = 5;
 
+  document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".colour").textContent = "?";
   document.querySelector(".colour").style.width = "15rem";
