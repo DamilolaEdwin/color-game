@@ -67,10 +67,11 @@ h1 {
 }
 
 .combine {
-  font-size: 1.4rem;
+  font-size: 2.5rem;
   position: absolute;
   top: 2rem;
   right: 2rem;
+  border-radius: 10rem;
 }
 
 .again {
@@ -78,6 +79,8 @@ h1 {
   top: 2rem;
   left: 2rem;
   padding: 1rem;
+  font-size: 2rem;
+  border-radius: 7rem;
 }
 
 .options {
@@ -91,6 +94,47 @@ h1 {
 
 .label-score {
   margin-bottom: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  color: black;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-size: 2rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 @media screen and (max-width: 600px) {

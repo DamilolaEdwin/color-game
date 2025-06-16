@@ -10,7 +10,7 @@
   <body>
     <header>
       <h1>Guess the Colour</h1>
-      <p class="combine">You only have 5 guesses</p>
+      <button class="combine">Gaming Instructions!</button>
       <button class="again">Again</button>
       <div class="colour">?</div>
     </header>
@@ -27,6 +27,16 @@
         </p>
       </section>
     </main>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h2>Gaming Instructions</h2>
+      <p>
+        You only have 5 chances to guess the correct colour. You refresh the
+        game by clicking the 'Again' button. Game should be refreshed after a
+        correct guess or after exhausting your chances.
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
     <script src="script.js"></script>
   </body>
 </html>

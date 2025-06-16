@@ -17,6 +17,11 @@
 let score = 5;
 let highScore = 0;
 
+const openModal = document.querySelector(".combine");
+const closeModal = document.querySelector(".close-modal");
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
+
 const colourOptions = ["Red", "Green", "Blue", "Purple", "White", "Yellow"];
 
 const container = document.querySelector(".options");
@@ -76,4 +81,19 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".colour").style.backgroundColor = "white";
 
   document.querySelector(".score").textContent = score;
+});
+
+openModal.addEventListener("click", function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+closeModal.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+});
+
+overlay.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
 });
