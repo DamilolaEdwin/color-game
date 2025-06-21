@@ -29,6 +29,13 @@ const container = document.querySelector(".options");
 let secretColour = Math.floor(Math.random() * colourOptions.length);
 console.log(secretColour, colourOptions[secretColour]);
 
+let playing = true;
+
+const closeModalWindow = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
 colourOptions.forEach((color) => {
   const button = document.createElement("button");
   button.style.backgroundColor = color;
@@ -40,36 +47,43 @@ colourOptions.forEach((color) => {
   button.style.cursor = "pointer";
   button.textContent = color;
   button.addEventListener("click", function () {
-    if (color === colourOptions[secretColour]) {
-      document.querySelector(".message").textContent = "Correct!";
-      document.querySelector(".colour").style.backgroundColor = color;
-      document.querySelector(".colour").textContent = color;
-      document.querySelector(".colour").style.width = "40rem";
-      document.querySelector("body").style.backgroundColor = "#60b347";
+    if (playing) {
+      if (color === colourOptions[secretColour]) {
+        playing = false;
+        document.querySelector(".message").textContent = "Correct!";
+        document.querySelector(".colour").style.backgroundColor = color;
+        document.querySelector(".colour").textContent = color;
+        document.querySelector(".colour").style.width = "40rem";
+        document.querySelector("body").style.backgroundColor = "#60b347";
 
-      document.querySelector(".score").textContent = score;
+        document.querySelector(".score").textContent = score;
 
-      // High score code block
-      if (score > highScore) {
-        highScore = score;
-        document.querySelector(".highscore").textContent = highScore;
+        // High score code block
+        if (score > highScore) {
+          highScore = score;
+          document.querySelector(".highscore").textContent = highScore;
+        }
+      } else {
+        document.querySelector(".message").textContent = "Wrong!";
+        score--;
+        document.querySelector(".score").textContent = score;
+
+        if (score < 1) {
+          // Code block to stop playing game when score is zero
+          playing = false;
+          document.querySelector(".message").textContent =
+            "💥 You lost the game";
+        }
       }
-    } else {
-      document.querySelector(".message").textContent = "Wrong!";
-      score--;
-      document.querySelector(".score").textContent = score;
 
-      if (score < 1) {
-        document.querySelector(".message").textContent = "💥 You lost the game";
-      }
+      console.log(`Button ${color} was clicked.`);
     }
-
-    console.log(`Button ${color} was clicked.`);
   });
   container.appendChild(button);
 });
 
 document.querySelector(".again").addEventListener("click", function () {
+  playing = true;
   secretColour = Math.floor(Math.random() * colourOptions.length);
   console.log(colourOptions[secretColour]);
   score = 5;
@@ -88,12 +102,6 @@ openModal.addEventListener("click", function () {
   overlay.classList.remove("hidden");
 });
 
-closeModal.addEventListener("click", function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-});
+closeModal.addEventListener("click", closeModalWindow);
 
-overlay.addEventListener("click", function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-});
+overlay.addEventListener("click", closeModalWindow);

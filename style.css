@@ -71,7 +71,9 @@ h1 {
   position: absolute;
   top: 2rem;
   right: 2rem;
-  border-radius: 10rem;
+  border-radius: 6rem;
+  border: #eee 1px solid;
+  cursor: pointer;
 }
 
 .again {
@@ -81,6 +83,8 @@ h1 {
   padding: 1rem;
   font-size: 2rem;
   border-radius: 7rem;
+  border: #eee 1px solid;
+  cursor: pointer;
 }
 
 .options {
