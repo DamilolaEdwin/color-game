@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,35 +8,52 @@
     <title>Guess the Colour</title>
   </head>
   <body>
-    <header>
-      <h1>Guess the Colour</h1>
-      <button class="combine">Gaming Instructions!</button>
-      <button class="again">Again</button>
-      <div class="colour">?</div>
-    </header>
-    <main>
-      <section class="left">
-        <h2 class="des">Colours:</h2>
-        <p class="options"></p>
-      </section>
-      <section class="right">
-        <p class="message">Start guessing...</p>
-        <p class="label-score">💯 Chances left: <span class="score">5</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
-        </p>
-      </section>
-    </main>
-    <div class="modal hidden">
-      <button class="close-modal">&times;</button>
-      <h2>Gaming Instructions</h2>
-      <p>
-        You only have 5 chances to guess the correct colour. You refresh the
-        game by clicking the 'Again' button. Game should be refreshed after a
-        correct guess or after exhausting your chances.
-      </p>
+    <div class="landing">
+      <h1>Choose Difficulty</h1>
+
+      <div class="levels">
+        <button class="easy">Easy</button>
+        <button class="medium">Medium</button>
+        <button class="hard">Hard</button>
+      </div>
     </div>
-    <div class="overlay hidden"></div>
+
+    <div class="game hidden">
+      <header>
+        <button class="back">Back ⬅</button>
+        <h1>Guess the Colour</h1>
+        <button class="combine">Gaming Instructions!</button>
+        <button class="again">Again</button>
+        <div class="colour">?</div>
+      </header>
+      <main>
+        <section class="left">
+          <h2 class="des">Colours:</h2>
+          <p class="options"></p>
+        </section>
+        <section class="right">
+          <p class="message">Start guessing...</p>
+          <p class="label-score">
+            🎯 Chances left: <span class="chances">5</span>
+          </p>
+          <p>💯 Score: <span class="score">0</span></p>
+          <p class="label-highscore">
+            🥇 Highscore: <span class="highscore">0</span>
+          </p>
+        </section>
+      </main>
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h2>Gaming Instructions</h2>
+        <p>
+          You only have 5 chances to guess the correct colour. You refresh the
+          game by clicking the 'Again' button. Game should be refreshed after a
+          correct guess or after exhausting your chances.
+        </p>
+      </div>
+      <div class="overlay hidden"></div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

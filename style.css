@@ -17,6 +17,63 @@ body {
   background-color: #222;
 }
 
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 3rem;
+}
+
+.landing,
+.game {
+  transition: opacity 0.4s ease;
+  height: 100vh;
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.levels {
+  display: flex;
+  gap: 2rem;
+  margin-block-start: 130px;
+}
+
+.levels button {
+  padding: 1.5rem 3rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.levels button:hover {
+  background-color: #858585;
+}
+
+.back {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 7rem;
+  border: #eee 1px solid;
+  cursor: pointer;
+}
+
 header {
   position: relative;
   height: 35vh;
@@ -78,7 +135,7 @@ h1 {
 
 .again {
   position: absolute;
-  top: 2rem;
+  top: 10rem;
   left: 2rem;
   padding: 1rem;
   font-size: 2rem;
@@ -102,6 +159,47 @@ h1 {
 
 .hidden {
   display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+@keyframes winFlash {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.win {
+  animation: winFlash 0.4s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.lose {
+  animation: shake 0.4s ease;
 }
 
 .modal {
